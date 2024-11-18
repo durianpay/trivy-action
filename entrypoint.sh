@@ -39,7 +39,7 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
 fi
 
 # Run Trivy
-cmd=(trivy "$scanType" "$scanRef")
+cmd=(trivy "$scanType" "$scanRef" --db-repository public.ecr.aws/aquasecurity/trivy-db:2)
 echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
